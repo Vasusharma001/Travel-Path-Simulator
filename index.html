@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Path Simulator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="home">
+        <header>
+            <nav>
+                <a href="./index.html" class="logo">Travel Path Simulator</a>
+                <div class="container">
+                    <div class="btn" style="margin-right: 16px;" id="visualize">Start</div>
+                    <a href="./index.html" id="visualize" class="btn" class="logo">Reset</a>
+                    <ul class="nav-menu">
+                        <li><a href="#" id="clearPath">Remove path</a></li>
+                        <li><a href="#" id = "generateMazeBtn">Generate maze</a></li>
+                        <li><a href="#" id="clearBoard">Clear maze</a></li>
+                        <li class="drop-box">
+                            <a href="#">Algorithms <span class="caret"></span></a>
+                            <ul class="drop-menu">
+                                <li><a href="#">Depth-First-Search-Recursive</a></li>
+                                <li><a href="#">Depth-First-Search-Iterative</a></li>
+                                <li class="active"><a href="#">Breadth-First-Search</a></li>
+                                <li><a href="#">Dijkstra</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <ul class="guide-bar">
+                <li>
+                    <span class="icon path"></span>
+                    <span class="text">path</span>
+                </li>
+                <li>
+                    <span class="icon source"></span>
+                    <span class="text">source</span>
+                </li>
+                <li>
+                    <span class="icon target"></span>
+                    <span class="text">target</span>
+                </li>
+                <li>
+                    <span class="icon unvisited"></span>
+                    <span class="text">unseen</span>
+                </li>
+                <li>
+                    <span class="icon visited"></span>
+                    <span class="text">seen</span>
+                </li>
+                <li>
+                    <span class="icon wall"></span>
+                    <span class="text">obstacle</span>
+                </li>
+            </ul>
+        </header>
+        <div id="board"></div>
+    </div>
+</body>
+
+<script  type="module" src="algo.js"></script>
+
+</html>

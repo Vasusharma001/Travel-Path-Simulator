@@ -1,0 +1,261 @@
+.container {
+    display: flex;
+    align-items: center; 
+    gap: 0; 
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.home{
+    height: 100%;
+    width: 100%;
+    grid-template-rows: auto 1fr;
+    grid-gap: 10px;
+    display: grid;
+}
+
+nav{
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background-color: var(--clr-navy);
+    justify-content: space-between;
+}
+
+.logo{
+    color: white;
+    padding: 0 16px;
+    margin:0;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.btn{
+    color: white;
+    background-color: var(--visited-clr);
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+
+.nav-menu{
+    align-items: center;
+    display: flex;
+}
+.nav-menu>li.active>a{
+    background-color: var(--visited-clr);
+}
+.nav-menu>li>a:hover{
+    color: var(--secondary-clr);
+}
+.nav-menu>li.active>a:hover{
+    color: white;
+}
+.nav-menu>li>a{
+    color: white;
+    font-weight: 600;
+    display: flex;
+    display: block;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 8px;
+}
+.drop-box{
+    position: relative;
+}
+.drop-box.active .drop-menu{
+    display: block;
+}
+.drop-box .drop-menu{
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    padding: 4px;
+    top: calc(100% + 20px);
+    background-color: var(--clr-navy);
+    min-width: 120px;
+    display: none;
+    border-radius: 8px;
+}
+
+.drop-menu>li>a:hover,
+.drop-menu>li.active>a{
+    background-color: var(--primary-clr);
+}
+.drop-menu>li>a{
+    color: white;
+    border-radius: 4px;
+    display: block;
+    padding: 8px;
+}
+
+.guide-bar{
+    font-size: 15px;
+    text-transform: capitalize;
+    padding: 10px;
+    gap: 15px;
+    display: flex;
+    align-self: center;
+}
+.guide-bar>li{
+    display: flex;
+    align-items: right;
+    gap: 4px;
+}
+
+#board{
+    overflow: hidden;
+}
+
+.row{
+    display: flex;
+}
+.col{
+    aspect-ratio: 1;
+    min-width: var(--cell-width);
+    border: 1px solid var(--light-line);
+    width: 100%;
+}
+
+:root {
+    --clr-navy: #000000;
+    --light-line: #080800;
+    --secondary-clr: #2422ad;
+    --primary-clr: #06070a;
+    --light-text: #130278;
+    --cell-width: 22px;
+    --path-clr: #0b07f5;
+    --light-dot: #ef19c1;
+    --visited-clr: #f32314;
+    --wall-clr: #0e090e;
+}
+
+.icon {
+    aspect-ratio: 1;
+    width: 20px;
+}
+
+@media screen and (max-width: 1000px){
+    nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-row-gap: 4px;
+    }
+    .btn{
+        justify-self: start;
+    }
+    .nav-menu{
+        grid-column: 1/-1;
+        width: max-content;
+    }
+}
+
+.caret {
+    display: block;
+    aspect-ratio: 1;
+    width: 14px;
+    background: url(../assets/down-arrow.svg);
+}
+
+.visited {
+    animation: visitedAnimation 1.5s ease-out forwards;
+}
+
+.unvisited {
+    border: 1px solid var(--light-line);
+}
+
+.wall {
+    border-color: var(--clr-navy);
+    animation: wallAnimation .5s ease-out forwards;
+}
+
+
+.target {
+    background: url(../assets/end.svg);
+}
+
+.path {
+    animation: pathAnimation 1.5s ease-out forwards;
+}
+
+.source {
+    background: url(../assets/start.svg);
+}
+
+
+@keyframes wallAnimation {
+
+    0% {
+        transform: scale(.2);
+        background-color: var(--wall-clr);
+    }
+
+    50% {
+        background-color: var(--wall-clr);
+        transform: scale(1.2);
+    }
+
+    100% {
+        background-color: var(--wall-clr);
+        transform: scale(1.0);
+    }
+}
+
+@keyframes pathAnimation {
+    0% {
+        transform: scale(1);
+        background-color: var(--path-clr);
+    }
+
+    50% {
+        transform: scale(.1);
+        background-color: var(--path-clr);
+    }
+
+    100% {
+        transform: scale(1.0);
+        background-color: var(--path-clr);
+    }
+}
+
+@keyframes visitedAnimation {
+    0% {
+        transform: scale(.3);
+        background-color: rgba(255, 255, 255, 0.75);
+        border-radius: 100%;
+    }
+
+    25% {
+        transform: scale(.3);
+        background-color: rgba(250, 155, 168, 0.75);
+        border-radius: 100%;
+    }
+
+    50% {
+        background-color: rgba(253, 130, 155, 0.75);
+    }
+
+    75% {
+        transform: scale(1);
+        background-color: rgba(250, 64, 98, 0.75);
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: var(--visited-clr);
+    }
+}
+
+
+*{
+    padding: 5;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
