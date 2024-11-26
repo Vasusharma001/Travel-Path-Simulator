@@ -5,6 +5,6 @@ An engaging web application that demonstrates the workings of various pathfindin
 
 - **Multiple Pathfinding Algorithms:**
   - Breadth-First Search (BFS)
-![ScreenShot](image1.png)
+![ScreenShot](image1.jpeg)
   - Dijkstra's Algorithm 
-![ScreenShot](image2.png)
+![ScreenShot](image2.jpeg)
